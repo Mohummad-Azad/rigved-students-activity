@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate OTP</title>
+    <style>
+        .box {
+            box-shadow: 0 0 15px red;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+         Customer Your OTP registration is <span id="otp"></span>
+    </div>
+    <br>
+    <button type="button" onclick=" generator()">Generate OTP</button>
+
+    <script>
+        prompt("Enter the digit for generate the otp");
+       
+        function generator()
+      {
+          var digits =' 1 2 3 4 5 6 7 8 9 0 ';
+          var OTP='';
+          
+
+          for(let i=0; i<6; i++){
+              OTP += digits[Math.floor(Math.random()*10)];
+          }
+      
+      document.getElementById('otp').innerHTML=OTP;
+        }
+    </script>
+</body>
+</html>

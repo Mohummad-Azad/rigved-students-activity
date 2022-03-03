@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Form  Validation</title>
+    <style>
+      body{
+          padding : 10px 50px;
+          margin : 10px;
+      }
+
+      .form {
+          font-size: 20px;
+      }
+
+      .form input{
+          width: 20%;
+          padding: 10px;
+          margin: 14px;
+          border-radius: 5px;
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+    </style>
+    <script>
+        function validation() {
+            var regform = document.myform;
+            var firstname = regform.fname;
+            var lname = regform.lname;
+            var password = regform.pass;
+            var confirmPass= regform.cpass;
+            var gender = regform.gen;
+            var skill = regform.tech;
+            var select = regform.select;
+
+            if(firstname.value.length <= 3){
+                alert("Name is required.");
+                
+                return false ;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="myform" onsubmit="return validateForm()" method="post">
+        <div class="form">
+      First Name: <input type="text" name="fname" placeholder="First name"><br/>
+        </div>
+        <div class="form">
+      Last Name: <input type="text" name="lname" placeholder="Last name"><br/>
+         </div>
+         <div class="form">
+      Password: <input type="password" name="pass" placeholder="Password"><br/>
+        </div>
+        <div class="form">
+      Confirm Password:<input type="password" name="cpass" placeholder="Confirm password"><br/>
+      </div>
+      <div class="form">
+         Gender: <input type="radio" name="gen" value="M">Male<input type="radio" name="gen" value="F">Female  
+      </div>
+      <div class="form">
+          Skills: <input type="checkbox" name="tech">HTML<input type="checkbox" name="skill">CSS
+      </div>
+      <div class="form">
+          Education: <select name="select" id="select">
+              <option>Qualification level</option>
+              <option>SSC</option>
+              <option>HSC</option>
+              <option>GRADUATION</option>
+              <option>POST GRADUATION</option>
+          </select>
+      </div>
+      <div class="form">
+          <input type="submit" value="Submit"> <input type="submit" value="Reset">
+      </div>
+
+    </form>
+</body>
+</html>

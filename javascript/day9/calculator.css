@@ -1,0 +1,24 @@
+body{
+    padding : 10px 30px;
+    margin : 10px;
+}
+
+.form {
+    font-size: 15px;
+}
+
+.form input{
+    width: 20%;
+    padding: 10px;
+    margin: 14px;
+    border-radius: 5px;
+    font-family:'Courier New', Courier, monospace;
+    color: rgb(7, 48, 29);
+}
+
+.form button {
+    font-size: 15px;
+    padding: 5px;
+    color: aquamarine;
+    
+}
