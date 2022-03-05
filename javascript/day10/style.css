@@ -1,0 +1,20 @@
+body{
+   text-align: center;
+    
+}
+div {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid rgb(18, 172, 31);
+    width: 450px;
+    
+    color:red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+tr, td, th {
+    border: 2px solid blue;
+    padding: 6px;
+    
+}
