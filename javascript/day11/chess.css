@@ -1,0 +1,24 @@
+ *{
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+ }
+
+ #container {
+     width: 406px;
+     height: 405px;
+     border: 3px solid blue;
+     display: grid;
+     grid-template-rows: repeat(8, 1fr);
+ }
+
+ .chessrows {
+     height: 50px;
+     border: 1px solid greenyellow;
+     display: flex;
+ }
+
+ .boxes {
+     width: 50px;
+     height: 50px;
+ }

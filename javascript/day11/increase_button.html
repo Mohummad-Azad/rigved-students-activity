@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button
+        {
+         background : linearGradient(red,black);
+         color :red;
+         font-size: 25px;
+         cursor: pointer;
+         width: 200px;
+        }
+
+        button:hover
+        {
+            background: linear-gradient(green, black);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id ='a' >This is heading. Today is monday</h1>
+        <button onclick="Increase()">Increase</button>
+        <button onclick="Decrease()">Decrease</button>
+    </div>
+    <script type="text/javascript">
+         
+        function Increase(){
+            
+            document.getElementById('a').style.fontSize = '50px';
+            document.getElementById('a').style.backgroundColor ='blue';
+        }
+
+        function Decrease(){
+            
+            document.getElementById('a').style.fontSize = '10px';
+            document.getElementById('a').style.backgroundColor ='yellow';
+        }
+    </script>
+</body>
+</html>

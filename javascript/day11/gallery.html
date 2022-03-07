@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px solid blueviolet;
+        }
+       div > img {
+           width:150px;
+           height: 150px;
+       } 
+    </style>
+</head>
+<body>
+    <center>
+    <h1><marquee>Gallery of Pics</marquee></h1>
+    <img src="C:\Users\Azad\Desktop\a\rigved-students-activity\javascript\247072.webp" width="400" height="400" id= "bigpic">
+    
+    <hr/>
+    <div onclick="changepic(event)">
+    <img src="C:\Users\Azad\Desktop\a\rigved-students-activity\javascript\18375601324_cacd540a4d_z-1.jpg">
+    <img src="C:\Users\Azad\Desktop\a\rigved-students-activity\javascript\captain-america_marvel_gallery_5c4cf290102fa.jpg"  >
+    <img src="C:\Users\Azad\Desktop\a\rigved-students-activity\javascript\Five-Indian-Superheroes-from-Marvel-and-DC1200_60cecc42c6e22.jpeg">  
+    <img src="C:\Users\Azad\Desktop\a\rigved-students-activity\javascript\image.jpg"> 
+    <img src="C:\Users\Azad\Desktop\a\rigved-students-activity\javascript\rROHYUm8aAXdjCzzW2GreZ5h2WDArkToUxd0kCcAO0ZXC8rQrroSO9oDt6JY50Kgr5XCUH7uFgAqhG6WoH5awzsk8SO.jpg"> 
+</div>
+<center>
+<script type="text/javascript">
+    function changepic(e) {
+      var ele = e.target;
+      var ele2 = document.getElementById('bigpic');
+      if(ele.tagName == 'IMG'){
+          ele2.src = ele.src;
+      }
+    }
+</script>
+</body>
+</html>

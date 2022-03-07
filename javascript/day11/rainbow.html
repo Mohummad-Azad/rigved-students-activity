@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            position: absolute;
+            left: 200px;
+            top: 0px;
+            width: 1000px;
+            height: 600px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id ="canvas" width="1000" height="600"></canvas>
+    <script >
+        window.addEventListener('load', draw, false)
+        function draw(){
+            let canvas = document.getElementById("canvas");
+            let ctx = canvas.getContext("2d")
+            ctx.fillStyle = "skyblue"
+            ctx.fillReact(0,0,canvas.width,canvas.height)
+            let rainbowcolors = ["red","orange","yellow","green","blue","indigo","violet"]
+            for (i=0,x=50,x1=0,y=-200,y1=-100; i < 7 ; i++ , x+=50, x1+=50, y+=100, y1+=100){
+            ctx.fillStyle = rainbowcolors[i];
+            ctx.strokeStyle = rainbowcolors[i];
+        ctx.arc(500, 500, 50, 0, Math.p , true);
+        ctx.fill();
+        ctx.fillStyle = "red" ;
+        }
+    }
+    </script>
+</body>
+</html>

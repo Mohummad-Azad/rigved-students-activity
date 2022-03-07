@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+    <style>
+        div {
+            border: 2px solid darkblue;
+            width: 400px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div >
+        <h1 id = "a">Hello Everyone Good After Noon</h1>
+        <h2 id="b">How Are You</h2>
+        <button onclick="changecolor()">Add Color</button>
+    </div>
+   
+    <script type="text/javascript">
+        var counter = 0;
+        function changecolor(){
+            var ele = document.getElementById('a');
+            var ele2 = document.getElementById('b');
+            var colors = ['red', 'blue','yellow'];
+            ele.style.color =colors[counter++];
+            if(counter == colors.length){
+                counter = 0; 
+            }
+
+            var ele2 = document.getElementById('b');
+              ele2.innerHTML = 'Content Is Updated By Azad';
+            
+        }
+    </script>
+</body>
+</html>
