@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Name :<input type="text" name="n1" id="i1"><br>
+    Age :<input type="text" name="n2" id="i2"><br>
+    <input type="button" value="Submit" onclick="submit()">
+
+    <script>
+        function submit(){
+        
+            var x =document.getElementById('i1').value;
+            var y = document.getElementById('i2').value;
+
+            try {
+                if (18<y && y>60){
+                    throw"Yoa are not eligible";
+                }
+            }
+            catch(error){
+                alert(error);
+                submit();
+            }
+            finally{
+                alert('Name:'+ x + 'Age:'+y)
+            }
+            document.write('Done!')
+        }
+        submit();
+ </script>
+  
+
+  
+</body>
+</html>
