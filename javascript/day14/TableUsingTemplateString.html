@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class=" table- stripped" border="5px" width="400px">
+        <tr>
+            <th rowspan="2">Name</th>
+            <th rowspan="2">Age</th>
+            <th colspan="2">Address</th>
+        </tr>
+        <tr>
+            <th>State</th>
+            <th>City</th>
+        </tr>
+        <tbody id="myTable">
+
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+
+        var myArray = [
+            {name : "Alex", age : "35", address : {state:" Maharastra", city : "Mumbai"}},
+            {name : "Micheal", age : "30"},
+            {name : "Paul", age : "45", address : {state:" Karnatak", city : "Keral"}},
+             {name : "LYNX", age : "40"},
+             {name : "Bruce", age : "50", address : {state:" WestBengal", city : "Murshidabad"}}
+        ]
+
+        buildTable(myArray)
+
+        function buildTable(data){
+            var table = document.getElementById('myTable')
+
+            for (var i=0; i< data.length; i++){
+                var row = `<tr>
+                               <td>${data[i].name}</td>
+                               <td>${data[i].age}</td>
+                               <td>${data[i]?.address?.state}</td>
+                               <td>${data[i]?.address?.city}</td>
+                           </tr>`
+                           table.innerHTML += row
+            }
+        }
+    </script>
+</body>
+</html>

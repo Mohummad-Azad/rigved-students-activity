@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        Customer Your Generated Number is <span id="otp"></span>
+   </div>
+   <br>
+   <button type="button" onclick=" generator()">Generate Random Number</button>
+
+   <script>
+       
+      
+       function generator()
+     {
+         var digits =' 1 2 3 4 5 6 7 8 9 0 ';
+         var OTP='';
+         var a;
+
+         for(let i=0; i<6; i++){
+
+             OTP += digits[Math.floor(Math.random()*10)];  
+         
+         if (OTP.length != 6){
+              a = OTP.padEnd(6 , '*'); 
+              document.write(`padEnd : ${a} <br/>`);
+            }
+        else
+        {
+            document.write(`Random Number : ${OTP}`)
+        }
+
+    } 
+     document.getElementById('otp').innerHTML=OTP;
+       }
+   </script>
+</body>
+</html>
