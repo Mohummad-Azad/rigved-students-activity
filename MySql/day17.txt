@@ -1,0 +1,51 @@
+create database Employee;
+show databases;
+use Employee;
+
+create table employee(
+employee_id int primary key auto increament,
+employee_name varchar(300),
+Age int not null check(Age>=18),
+Email varchar(200) unique);
+
+show tables;
+
+insert into employee (employee_id, employee_name,Age, Email)
+values(100,'Azad', 21 , 'azadsarkar87@gmail.com') ;
+insert into employee values('aakash', 23, 'aakashmishra67@gmail.com');
+insert into employee values('Adam', 89, 'Blackadam98@gmail.com');
+insert into employee values('Anish', 33, 'Anishkumar36@gmail.com');
+
+select *from employee;
+
+alter table employee
+add Pan varchar(100) unique,
+add Aadhar card double unique;
+
+update employee
+set Pan ='OELPS0506A', Aadharcard = 921104012926 where employee_id = 100;
+update employee
+set Pan ='SJHFV2579G', Aadharcard = 956615664546 where employee_id = 101;
+update employee
+set Pan ='DHGAD689', Aadharcard = 59554127754 where employee_id = 102;
+update employee
+set Pan ='THEH9873E', Aadharcard = 684265884451 where employee_id = 103;
+
+delete from employee where employee_id = 1 ;
+
+alter table employee
+drop Pan;
+alter table employee
+drop Aadharcard;
+alter table employee
+drop Email;
+alter table employee
+drop Age;
+alter table employee
+drop employee_name;
+alter table employee
+drop employee_id;
+
+delete from employee;
+
+select *from employee;
