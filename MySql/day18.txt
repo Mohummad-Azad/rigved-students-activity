@@ -1,0 +1,96 @@
+mysql> create database Activity;
+Query OK, 1 row affected (1.60 sec)
+
+mysql> use Activity;
+Database changed
+
+mysql> create table Student (Rollno int primary key, Name varchar(200), Age int );
+Query OK, 0 rows affected (1.95 sec)
+
+mysql> create table marks (Mid int , Physics int, Maths int, Chemistry int, Student_rollno int);
+Query OK, 0 rows affected (1.88 sec)
+
+mysql> desc Student;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| Rollno | int          | NO   | PRI | NULL    |       |
+| Name   | varchar(200) | YES  |     | NULL    |       |
+| Age    | int          | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+3 rows in set (0.07 sec)
+
+
+mysql> insert into Student(Rollno, Name, Age)
+    -> values(1, 'Sherin', 25);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into Student values (2, 'aditya', 30);
+Query OK, 1 row affected (0.27 sec)
+
+mysql> insert into Student values (3, 'kammo', 40);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Student values (4, 'harsh', 31);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select *from Student;
++--------+--------+------+
+| Rollno | Name   | Age  |
++--------+--------+------+
+|      1 | Sherin |   25 |
+|      2 | aditya |   30 |
+|      3 | kammo  |   40 |
+|      4 | harsh  |   31 |
++--------+--------+------+
+4 rows in set (0.00 sec)
+
+
+
+mysql> insert into marks  (Mid, Physics , Maths, Chemistry, Student_rollno) values (100, 70 , 80, 70, 2);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into marks values (200, 80 , 80, 80, 1);
+Query OK, 1 row affected (0.25 sec)
+
+mysql> insert into marks values (300, 90 , 90, 70, 3);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> insert into marks values (400, 88 , 88, 77, 4);
+Query OK, 1 row affected (0.23 sec)
+
+
+mysql> select * from marks;
++------+---------+-------+-----------+----------------+
+| Mid  | Physics | Maths | Chemistry | Student_rollno |
++------+---------+-------+-----------+----------------+
+|  100 |      70 |    80 |        70 |              2 |
+|  200 |      80 |    80 |        80 |              1 |
+|  300 |      90 |    90 |        70 |              3 |
+|  400 |      88 |    88 |        77 |              4 |
++------+---------+-------+-----------+----------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select Rollno, Name, Age, Mid, Student_rollno from Student inner join marks on Rollno=Student_rollno;
++--------+--------+------+------+----------------+
+| Rollno | Name   | Age  | Mid  | Student_rollno |
++--------+--------+------+------+----------------+
+|      2 | aditya |   30 |  100 |              2 |
+|      1 | Sherin |   25 |  200 |              1 |
+|      3 | kammo  |   40 |  300 |              3 |
+|      4 | harsh  |   31 |  400 |              4 |
++--------+--------+------+------+----------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select Rollno, Name, Age, Mid, Student_rollno, (Physics +Maths +Chemistry) as Total , ((Physics+ Maths + Chemistry)/3) as Average from Student inner join marks on Rollno=Student_rollno;
++--------+--------+------+------+----------------+-------+---------+
+| Rollno | Name   | Age  | Mid  | Student_rollno | Total | Average |
++--------+--------+------+------+----------------+-------+---------+
+|      2 | aditya |   30 |  100 |              2 |   220 | 73.3333 |
+|      1 | Sherin |   25 |  200 |              1 |   240 | 80.0000 |
+|      3 | kammo  |   40 |  300 |              3 |   250 | 83.3333 |
+|      4 | harsh  |   31 |  400 |              4 |   253 | 84.3333 |
++--------+--------+------+------+----------------+-------+---------+
+4 rows in set (0.00 sec)

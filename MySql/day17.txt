@@ -3,7 +3,7 @@ show databases;
 use Employee;
 
 create table employee(
-employee_id int primary key auto increament,
+employee_id int primary key auto increment,
 employee_name varchar(300),
 Age int not null check(Age>=18),
 Email varchar(200) unique);
