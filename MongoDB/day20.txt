@@ -1,0 +1,104 @@
+
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use mydb;
+switched to db mydb
+> db.createCollection("myCollection");
+{ "ok" : 1 }
+> show collections;
+myCollection
+> db.myCollection.insert({_id:20,name:"Azad"});
+WriteResult({ "nInserted" : 1 })
+> db.myCollection.insert({name:"Azad"});
+WriteResult({ "nInserted" : 1 })
+> db.myCollection.insert({firstname:"Azad", lastname:"Sarakar"});
+WriteResult({ "nInserted" : 1 })
+> db.myCollection.find();
+{ "_id" : 20, "name" : "Azad" }
+{ "_id" : ObjectId("623888468b1e8fcf41eddcff"), "name" : "Azad" }
+{ "_id" : ObjectId("623888648b1e8fcf41eddd00"), "firstname" : "Azad", "lastname" : "Sarakar" }
+>
+>
+> db.myCollection.insertOne({_id:30, name:"Sachin"});
+{ "acknowledged" : true, "insertedId" : 30 }
+> db.myCollection.insertOne({ name:"Sachin"});
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("623889378b1e8fcf41eddd01")
+}
+> db.myCollection.find()
+{ "_id" : 20, "name" : "Azad" }
+{ "_id" : ObjectId("623888468b1e8fcf41eddcff"), "name" : "Azad" }
+{ "_id" : ObjectId("623888648b1e8fcf41eddd00"), "firstname" : "Azad", "lastname" : "Sarakar" }
+{ "_id" : 30, "name" : "Sachin" }
+{ "_id" : ObjectId("623889378b1e8fcf41eddd0
+
+> db.myCollection.insertMany([{_id:50, name : "Aamir"}, {_id:66, name:"wasim"}, {firstname:"Nasim" , lastname:"Shaikh"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                50,
+                66,
+                ObjectId("62388b068b1e8fcf41eddd02")
+        ]
+}
+> db.myCollection.find();
+{ "_id" : 20, "name" : "Azad" }
+{ "_id" : ObjectId("623888468b1e8fcf41eddcff"), "name" : "Azad" }
+{ "_id" : ObjectId("623888648b1e8fcf41eddd00"), "firstname" : "Azad", "lastname" : "Sarakar" }
+{ "_id" : 30, "name" : "Sachin" }
+{ "_id" : ObjectId("623889378b1e8fcf41eddd01"), "name" : "Sachin" }
+{ "_id" : 50, "name" : "Aamir" }
+{ "_id" : 66, "name" : "wasim" }
+{ "_id" : ObjectId("62388b068b1e8fcf41eddd02"), "firstname" : "Nasim", "lastname" : "Shaikh" }
+>
+>
+> db.createCollection("emp");
+{ "ok" : 1 }
+> db.createCollection("Emp");
+{ "ok" : 1 }
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+mydb    0.000GB
+> db.createCollection("user")
+{ "ok" : 1 }
+>
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+mydb    0.000GB
+> show Collection;
+uncaught exception: Error: don't know how to show [Collection] :
+shellHelper.show@src/mongo/shell/utils.js:1211:11
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> show collection;
+uncaught exception: Error: don't know how to show [collection] :
+shellHelper.show@src/mongo/shell/utils.js:1211:11
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> db.user.insertMany([{_id:10 , name: "Love", password:"jaal123"}, {_id:20, name:"Harish", password:"ajsh345"},{_id:30, name:"kaushal", password:"ghg5688"}]);
+{ "acknowledged" : true, "insertedIds" : [ 10, 20, 30 ] }
+> db.user.find()
+{ "_id" : 10, "name" : "Love", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harish", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "ghg5688" }
+> db.user.update({
+... name:"Love"
+... },
+... {$set: {
+... name:"Update Name"
+... }
+... })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.user.update({ password:"ghg5688" }, {$set: { password:"Updated Password is:jdh58211" } })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.user.find();
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harish", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
