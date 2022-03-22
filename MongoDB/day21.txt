@@ -1,0 +1,266 @@
+C:\Users\Azad> set path=C:\Users\mongodb-database-tools-windows-x86_64-100.5.2\bin;%path%
+
+C:\Users\Azad>mongodump
+2022-03-22T14:54:17.857+0530    writing admin.system.version to dump\admin\system.version.bson
+2022-03-22T14:54:17.885+0530    done dumping admin.system.version (1 document)
+2022-03-22T14:54:17.886+0530    writing mydb.user to dump\mydb\user.bson
+2022-03-22T14:54:17.929+0530    done dumping mydb.user (3 documents)
+2022-03-22T14:54:18.197+0530    writing mydb.Emp to dump\mydb\Emp.bson
+2022-03-22T14:54:18.197+0530    writing mydb.emp to dump\mydb\emp.bson
+2022-03-22T14:54:18.198+0530    writing mydb.myCollection to dump\mydb\myCollection.bson
+2022-03-22T14:54:18.211+0530    done dumping mydb.Emp (0 documents)
+2022-03-22T14:54:18.229+0530    done dumping mydb.emp (0 documents)
+2022-03-22T14:54:18.286+0530    done dumping mydb.myCollection (8 documents)
+
+C:\Users\Azad>mongorestore
+2022-03-22T15:04:33.740+0530    using default 'dump' directory
+2022-03-22T15:04:33.742+0530    preparing collections to restore from
+2022-03-22T15:04:33.746+0530    reading metadata for mydb.emp from dump\mydb\emp.metadata.json
+2022-03-22T15:04:33.747+0530    reading metadata for mydb.myCollection from dump\mydb\myCollection.metadata.json
+2022-03-22T15:04:33.748+0530    reading metadata for mydb.user from dump\mydb\user.metadata.json
+2022-03-22T15:04:34.067+0530    restoring mydb.user from dump\mydb\user.bson
+2022-03-22T15:04:34.457+0530    restoring mydb.myCollection from dump\mydb\myCollection.bson
+2022-03-22T15:04:34.617+0530    restoring mydb.Emp from dump\mydb\Emp.bson
+2022-03-22T15:04:34.639+0530    finished restoring mydb.Emp (0 documents, 0 failures)
+2022-03-22T15:04:34.644+0530    finished restoring mydb.myCollection (8 documents, 0 failures)
+2022-03-22T15:04:34.644+0530    finished restoring mydb.user (3 documents, 0 failures)
+2022-03-22T15:04:34.711+0530    finished restoring mydb.emp (0 documents, 0 failures)
+2022-03-22T15:04:34.711+0530    no indexes to restore for collection mydb.user
+2022-03-22T15:04:34.713+0530    no indexes to restore for collection mydb.emp
+2022-03-22T15:04:34.715+0530    no indexes to restore for collection mydb.myCollection
+2022-03-22T15:04:34.716+0530    11 document(s) restored successfully. 0 document(s) failed to restore.
+
+
+> db.user.insertOne({"_id" :40, "name" : "Rita", "password" : "djhdj556"});
+{ "acknowledged" : true, "insertedId" : 40 }
+> db.user.insertOne({"_id" :50, "name" : "Ram", "password" : "shbjj9745"});
+{ "acknowledged" : true, "insertedId" : 50 }
+> db.user.insertOne({"_id" :60, "name" : "Mahesh", "password" : "ivhds6518"});
+{ "acknowledged" : true, "insertedId" : 60 }
+> db.user.insertOne({"_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562"});
+{ "acknowledged" : true, "insertedId" : 70 }
+> db.user.find()
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harish", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 60, "name" : "Mahesh", "password" : "ivhds6518" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+> db.user.deleteOne({name: "Mahesh"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.user.find()
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harish", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+> db.user.updateOne({_id : 20}, {$set:{name : Harry}})
+
+> db.user.updateOne({_id : 20}, {$set:{name : "Harry"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.user.find()
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+> db.myCollection.find().pretty()
+{ "_id" : 20, "name" : "Azad" }
+{ "_id" : ObjectId("623888468b1e8fcf41eddcff"), "name" : "Azad" }
+{
+        "_id" : ObjectId("623888648b1e8fcf41eddd00"),
+        "firstname" : "Azad",
+        "lastname" : "Sarakar"
+}
+{ "_id" : 30, "name" : "Sachin" }
+{ "_id" : ObjectId("623889378b1e8fcf41eddd01"), "name" : "Sachin" }
+{ "_id" : 50, "name" : "Aamir" }
+{ "_id" : 66, "name" : "wasim" }
+{
+        "_id" : ObjectId("62388b068b1e8fcf41eddd02"),
+        "firstname" : "Nasim",
+        "lastname" : "Shaikh"
+}
+
+> db.myCollection.find({name: "wasim"});
+{ "_id" : 66, "name" : "wasim" }
+> db.user.find({}, {name:1})
+{ "_id" : 10, "name" : "Update Name" }
+{ "_id" : 20, "name" : "Harry" }
+{ "_id" : 30, "name" : "kaushal" }
+{ "_id" : 40, "name" : "Rita" }
+{ "_id" : 50, "name" : "Ram" }
+{ "_id" : 70, "name" : "Rakesh" }
+> db.user.find({}, {name:0})
+{ "_id" : 10, "password" : "jaal123" }
+{ "_id" : 20, "password" : "ajsh345" }
+{ "_id" : 30, "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "password" : "djhdj556" }
+{ "_id" : 50, "password" : "shbjj9745" }
+{ "_id" : 70, "password" : "jhjmkn562" }
+> db.user.find({}, {_id:0, name:0})
+{ "password" : "jaal123" }
+{ "password" : "ajsh345" }
+{ "password" : "Updated Password is:jdh58211" }
+{ "password" : "djhdj556" }
+{ "password" : "shbjj9745" }
+{ "password" : "jhjmkn562" }
+
+
+> var x =10;
+> var y =20;
+> var z = x+ y;
+> z;
+30
+>
+> function demo() {
+... return 'I am Azad';
+... }
+> var x = demo()
+> x
+I am Azad
+>
+>
+> var counter = 1
+> function demo() {
+... counter += 1 ;
+... return counter;
+... }
+> x = demo()
+2
+> x = demo()
+3
+> x = demo()
+4
+> x = demo()
+5
+> x =demo()
+6
+> x= demo()
+7
+
+> new Date()
+ISODate("2022-03-22T11:02:02.867Z")
+
+> new Date().toLocaleDateString();
+Tuesday, March 22, 2022
+
+> db.user.insertOne({_id:1, firstname:"Sachin", lastname:"Tendulakr", address: {"state":"MH", "city":"mumbai"}});
+{ "acknowledged" : true, "insertedId" : 1 }
+> db.user.insertOne({_id:2, firstname:"Rohit", lastname:"Sharma", address: {"state":"Tamilnadu", "city":"chennai"}});
+{ "acknowledged" : true, "insertedId" : 2 }
+> db.user.insertOne({_id:3, firstname:"Yusuf", lastname:"Pathan", address: {"state":"Westbangal", "city":"kolkata"}});
+{ "acknowledged" : true, "insertedId" : 3 }
+
+> db.user.find({"address.state" :"MH"});
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+> db.user.find({"address.city" :"kolkata"});
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+
+> db.user.find({"address.city" :"chennai"});
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+> db.user.find()
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+
+> db.user.insertOne({_id:4, name : "Vikram", DOB: new Date(1996,9,20)})
+{ "acknowledged" : true, "insertedId" : 4 }
+> db.user.find()
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+{ "_id" : 4, "name" : "Vikram", "DOB" : ISODate("1996-10-19T18:30:00Z") }
+> db.user.insertOne({_id:4, name : "Vikram", DOB: new Date(1996,9,20).toLocaleDateString()})
+> db.user.insertOne({_id:5, name : "Vikram", DOB: new Date(1996,9,20).toLocaleDateString()})
+{ "acknowledged" : true, "insertedId" : 5 }
+
+> db.user.find().sort({name:1})
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 4, "name" : "Vikram", "DOB" : ISODate("1996-10-19T18:30:00Z") }
+{ "_id" : 5, "name" : "Vikram", "DOB" : "Sunday, October 20, 1996" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+> db.user.find().sort({name:-1})
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 4, "name" : "Vikram", "DOB" : ISODate("1996-10-19T18:30:00Z") }
+{ "_id" : 5, "name" : "Vikram", "DOB" : "Sunday, October 20, 1996" }
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+
+> db.user.find().sort({_id:1})
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+{ "_id" : 4, "name" : "Vikram", "DOB" : ISODate("1996-10-19T18:30:00Z") }
+{ "_id" : 5, "name" : "Vikram", "DOB" : "Sunday, October 20, 1996" }
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+{ "_id" : 70, "name" : "Rakesh", "password" : "jhjmkn562" }
+
+> db.user.find().sort({_id:1}).limit(5)
+{ "_id" : 1, "firstname" : "Sachin", "lastname" : "Tendulakr", "address" : { "state" : "MH", "city" : "mumbai" } }
+{ "_id" : 2, "firstname" : "Rohit", "lastname" : "Sharma", "address" : { "state" : "Tamilnadu", "city" : "chennai" } }
+{ "_id" : 3, "firstname" : "Yusuf", "lastname" : "Pathan", "address" : { "state" : "Westbangal", "city" : "kolkata" } }
+{ "_id" : 4, "name" : "Vikram", "DOB" : ISODate("1996-10-19T18:30:00Z") }
+{ "_id" : 5, "name" : "Vikram", "DOB" : "Sunday, October 20, 1996" }
+
+> db.user.find({_id:{$in:[10,20,30,40,50]}})
+{ "_id" : 10, "name" : "Update Name", "password" : "jaal123" }
+{ "_id" : 20, "name" : "Harry", "password" : "ajsh345" }
+{ "_id" : 30, "name" : "kaushal", "password" : "Updated Password is:jdh58211" }
+{ "_id" : 40, "name" : "Rita", "password" : "djhdj556" }
+{ "_id" : 50, "name" : "Ram", "password" : "shbjj9745" }
+
+
+> db.createCollection("student")
+{ "ok" : 1 }
+> db.createCollection("counters")
+{ "ok" : 1 }
+> db.system.js.save( { _id : "getNextValue" , value : function (sequence) { var document = db.counters.findAndModify({ query : {_id : sequence }, update :{$inc:{sequence_value:1}}, new:true});  return document.sequence_value; } } );
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 1,
+        "nModified" : 0,
+        "_id" : "getNextValue"
+})
+
+> db.loadServerScripts();
+
+> db.student.insert({ "_id" : getNextValue("studentid"), "name" : "Karan Khatri"});
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({ "_id" : getNextValue("studentid"), "name" : "Azad Sarkar"});
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : 1, "name" : "Karan Khatri" }
+{ "_id" : 2, "name" : "Azad Sarkar" }
