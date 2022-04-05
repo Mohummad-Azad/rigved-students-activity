@@ -14,5 +14,11 @@ export class TableAppComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  users : any = [
+    {name : "Andy",gender : "Male", address : {state: " KA", city : "BLR"}},
+    {name : "Jasmein",gender : "Female", address : {state: " NW", city : "MBI"}},
+    {name : "Joe",gender : "Male", address : {state: " J&K", city : "DHA"}},
+    {name : "Jacquline",gender : "Female", address : {state: " KOL", city : "MURS"}}
+  ]
 
 }

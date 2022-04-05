@@ -7,6 +7,7 @@ import { FirstComponent } from './first/first.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { StructuralDemoComponent } from './structural-demo/structural-demo.component';
 import { TableAppComponent } from './table-app/table-app.component';
+import { NameFormatterPipe } from './name-formatter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TableAppComponent } from './table-app/table-app.component';
     PipeDemoComponent,
     CustomPipe,
     StructuralDemoComponent,
-    TableAppComponent
+    TableAppComponent,
+    NameFormatterPipe
   ],
   imports: [
     BrowserModule

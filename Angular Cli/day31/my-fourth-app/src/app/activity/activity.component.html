@@ -1,0 +1,19 @@
+<div>
+   <p> Firstname: <input [(ngModle)] = "Firstname" type="text" ></p>
+   <p> Lastname : <input [(ngmodel)] = "Lastname" type="text" ></p>
+    <button (click) = "toggle(Firstname.value, Lastname.value)">Save</button>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>{{Firstname}}</td>
+            <td>{{Lastname}}</td>
+        </tr>
+    </table>
+</div>
