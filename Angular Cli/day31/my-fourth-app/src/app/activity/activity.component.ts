@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-activity',
@@ -11,11 +12,12 @@ export class ActivityComponent implements OnInit {
 
   ngOnInit(): void {
   }
-Firstname : string | undefined = undefined;
-Lastname : string | undefined = undefined;
+username : string | undefined = undefined;
 
-toggle(fn : string, ln : string): void {
-   this.Firstname = fn;
-   this.Lastname = ln;
+user : User = {firstname: '', lastname: ''};
+
+//to understand working of two-way-binding
+toggle() {
+   this.user.firstname = 'Dummy';
 }
 }

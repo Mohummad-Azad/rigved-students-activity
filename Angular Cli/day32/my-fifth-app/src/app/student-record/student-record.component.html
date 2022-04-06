@@ -1,0 +1,16 @@
+<div>
+    <table *ngIf = "students" border = "1">
+        <thead>
+            <tr>
+                <th>Roll No.</th><th>Name</th><th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of students">
+               <td>{{user.rollNo}}</td>
+               <td>{{user.name}}</td>
+               <td [style] = "myStyle2">{{user.marks}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
