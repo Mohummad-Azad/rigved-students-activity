@@ -1,0 +1,71 @@
+<div>
+    <h2>
+        Registration Form
+    </h2>
+    <form #user = "ngForm" (ngSubmit)="handleSubmit(user.value)">
+        <div class="form">
+        Firstname :
+        <input type="text" name="fn" ngModel #tf1 = "ngModel"
+        autocomplete="off" required minlength="3">
+        <span [hidden]="tf1.valid || tf1.pristine" class="text-danger">
+            Firstname must be greaterthan or equal to 2 Characters
+        </span>
+    </div>
+
+    <div class="form">
+        Lastname :
+        <input type="text" name ="ln" ngModel #tf2 = "ngModel"
+        autocomplete="off" required minlength="5">
+        <span [hidden]="tf2.valid || tf2.pristine" class="text-danger">
+            Lastname must be greaterthan or equal to 5 Characters
+        </span>
+    </div>
+
+    <div class="form">
+        Password: <input type="password" name="pass" ngModel #tf1 = "ngModel"
+        autocomplete="off" required minlength="8">
+        <span [hidden]="tf1.valid || tf1.pristine" class="text danger">
+            Password must be in 8 Characters
+        </span>
+    </div>
+     
+    <div class="form">
+        Gender: 
+        <input type="radio" name="gen" ngModel #tf1 = "ngModel">Male
+        <input type="radio" name="gen" ngModel #tf1 = "ngModel">Female
+        <span [hidden]="tf1.valid || tf1.pristine" class="text danger">
+            Gender must be select First
+        </span>  
+     </div>
+
+     <div class="form">
+        Skills: 
+        <input type="checkbox" name="tech" ngModel #tf1 = "ngModel">HTML
+        <input type="checkbox" name="skill" ngModel #tf1 = "ngModel">CSS
+        <input type="checkbox" name="skill" ngModel #tf1 = "ngModel">TS
+        <span [hidden]="tf1.valid || tf1.pristine" class="text danger">
+            Skills must be select First
+        </span> 
+    </div>
+      
+    <div class="form">
+        Education: <select name="select" id="select" ngModel #tf1 = "ngModel">
+            <option>Qualification level</option>
+            <option>SSC</option>
+            <option>HSC</option>
+            <option>GRADUATION</option>
+            <option>POST GRADUATION</option>
+        </select>
+        <span [hidden]="tf1.valid || tf1.pristine" class="text danger">
+            Education must be select First
+        </span>
+    </div>
+
+    <div class="form">
+        <input type="submit" value = "submit" [disabled]="user.invalid" class="btn btn-primary">
+    </div>
+    </form>
+    <p>Tf1 value: {{tf1.value | json}}</p>
+    <p>tf1 valid: {{tf1.valid}}</p>
+    <p>tf1 pristine: {{tf1.pristine}}</p>
+</div>
