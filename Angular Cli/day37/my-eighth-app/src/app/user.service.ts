@@ -29,11 +29,11 @@ export class UserService {
   }
 
 
-public update(id : number) : void {
+public update(obj: any) : void {
   for(let i = 0; i < this.userArray.length; i++) {
     let user = this.userArray[i];
-    if(user.userId == id) {
-      this.userArray.concat(i, 1);
+    if(user.userId == obj) {
+      this.userArray.push(obj);
     }
   }
 }

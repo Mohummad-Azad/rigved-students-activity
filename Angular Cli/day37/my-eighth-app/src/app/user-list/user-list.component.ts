@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -9,10 +10,11 @@ import { UserService } from '../user.service';
 export class UserListComponent implements OnInit {
   items : undefined | any[] = undefined;
 
-  constructor(public service : UserService) { }
+  constructor(public service : UserService, private _router : Router) { }
 
   ngOnInit(): void {
-    this.items = this.service.getUsers();//this is automatically called after constructor
+    this.items = this.service.getUsers();
+    this._router.navigate(["userList"]);//this is automatically called after constructor
   }
 
 }

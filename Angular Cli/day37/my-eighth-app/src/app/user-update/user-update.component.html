@@ -1,8 +1,17 @@
 <div>
-    <h3>
-        Update User
-    </h3>
-    Enter id : <input type="number" [formControl]="id">
-    <input type="button" value="Update" (click)="updateUser()" class="btn btn-danger">
+    <h2>User Update Form</h2>
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+        <div>
+            User Id : <input type="number" formControlName="userId">
+        </div>
+        <div>
+            Name : <input type="text" formControlName="name">
+        </div>
+        <div>
+            Dob : <input type="date" formControlName="dob">
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
 </div>
-

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormBuilder} from '@angular/forms';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-store',
   templateUrl: './user-store.component.html',
@@ -8,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class UserStoreComponent implements OnInit {
 
-  constructor(private builder : FormBuilder , private service : UserService) { }
+  constructor(private builder : FormBuilder , private _router : Router,  private service : UserService) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +18,8 @@ export class UserStoreComponent implements OnInit {
     userId : [''], name :[''], dob : ['']
   });
   saveForm() {
-    this.service.save(this.userForm.value)
+    this.service.save(this.userForm.value);
+    //userform.value = {userId:value, name: value, dob : value}
+    this._router.navigate(["success",this.userForm.value.userId]);//success value
   }
 }

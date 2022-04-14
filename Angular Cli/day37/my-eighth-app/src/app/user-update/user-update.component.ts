@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,12 +9,14 @@ import { UserService } from '../user.service';
 })
 export class UserUpdateComponent implements OnInit {
 
-  constructor(private service : UserService) { }
+  constructor(private service : UserService, private builder : FormBuilder) { }
 
   ngOnInit(): void {
   }
-  id: FormControl = new FormControl('');
+  userForm : FormGroup = this.builder.group({
+    userId : [''], name :[''], dob : ['']
+  });
   updateUser () {
-    this.service.update(this.id.value);
+    this.service.update(this.userForm.value);
 }
 }

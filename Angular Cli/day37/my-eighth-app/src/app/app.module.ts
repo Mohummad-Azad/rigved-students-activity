@@ -7,17 +7,28 @@ import { UserStoreComponent } from './user-store/user-store.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { Routes, RouterModule } from '@angular/router';
+import { RegisterSuccessComponent } from './register-success/register-success.component';
 
+let route : Routes = [
+  {path: "", component : UserStoreComponent},
+  {path: "store", component : UserStoreComponent},
+  {path: "userList", component : UserListComponent},
+  {path: "delete", component : UserDeleteComponent},
+  {path: "update", component : UserUpdateComponent},
+  {path: "success/:uid", component : RegisterSuccessComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserStoreComponent,
     UserDeleteComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    RegisterSuccessComponent
   ],
   imports: [
-    BrowserModule,FormsModule,ReactiveFormsModule
+    BrowserModule,FormsModule,ReactiveFormsModule, RouterModule.forRoot(route)
   ],
   providers: [],
   bootstrap: [AppComponent]
