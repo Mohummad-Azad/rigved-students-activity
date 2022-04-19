@@ -1,0 +1,16 @@
+<div>
+    <h2>Welcome to User Authentication</h2>
+        <form [formGroup]="profileForm" (ngSubmit)="handleRegister()">
+            <div>
+                Username : <input type="text" formControlName = "username" class="form-control">
+                <br/>
+                Password : <input type="password" formControlName = "password" class="form-control">
+                <br/>
+                <input type="button" value="Login" (click)="handleRegister() " class="btn btn-danger"> 
+            </div>
+        </form>
+    <router-outlet></router-outlet>
+    <div>
+    <a routerLink="forget-pasword">Forget Password</a>
+    </div>
+</div>
